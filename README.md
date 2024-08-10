@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Vertical Carousel
 
-Currently, two official plugins are available:
+This project implements a vertical carousel component in React. The carousel displays one item in the center of the screen, with 20% of the previous and next items visible above and below it. The carousel automatically scrolls to center the selected item and loops back to the beginning after reaching the last item.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img src="https://github.com/lokesh010/ngit/blob/main/public/readme.png"/>
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Smooth Scrolling:** The carousel scrolls smoothly to center the selected item.
+- **Looping:** Once the last item is reached, the carousel loops back to the first item.
+- **Responsive Design:** The carousel adjusts to different screen sizes.
+- **Atomic Design:** The component is structured using atomic design principles, making it modular and easy to maintain.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/lokesh010/ngit
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd ngit 
+    ```
+3. Install the dependencies:
+    ```bash
+    pnpm install
+    ```
+4. Start the development server:
+    ```bash
+    pnpm start
+    ```
+
+## Usage
+
+### Carousel Component
+
+You can use the `CarouselTemplate` component by passing in an array of items. Each item will be displayed in the carousel.
+
+### Example Usage
+
+```jsx
+import React from 'react';
+import Carousel from './Carousel';
+
+const items = Array(10).fill(null);
+
+function App() {
+  return (
+      <div
+        ref={containerRef}
+        className="carousel-container"
+        onScroll={handleScroll}
+      >
+        <CarouselTemplate items={items} currentIndex={currentIndex} />;
+      </div>
+  );
+}
+
+export default App;
 ```
+### Component Structure
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The carousel component is built using atomic design principles:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Atoms:** The smallest, most basic building blocks.
+  - **`BasicAtom`:** A simple box element with `inset-border` and `rounded-3xl` styles.
+  - **`PrimaryBackgroundAtom`:** Extends `BasicAtom` to include the `bg-primaryBackground` style.
+  - **`CircleAtom`:** A circular background element, extended from `PrimaryBackgroundAtom`.
+  - **`FlexContainer`:** A flexible container for arranging elements in a row.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Molecules:** Groups of atoms functioning together as a unit.
+  - **`TextBlockMolecule`:** A vertical stack of text elements created by combining `PrimaryBackgroundAtom` components.
+  - **`AvatarWithTextMolecule`:** Combines a `CircleAtom` with a `TextBlockMolecule` to create a row with an avatar and text.
+
+- **Organisms:** More complex components composed of molecules and atoms.
+  - **`CarouselItemOrganism`:** The main carousel item, combining a `PrimaryBackgroundAtom` for the top section and an `AvatarWithTextMolecule` for the bottom section.
+
+- **Templates:** Layouts that combine organisms and other components into structured arrangements.
+  - **`CarouselTemplate`:** A template that arranges multiple `CarouselItemOrganism` components in a scrollable vertical container.
+
