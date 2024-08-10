@@ -28,7 +28,7 @@ function App() {
     <>
       <div
         ref={containerRef}
-        className="carousel-container"
+        className="p-2 carousel-container"
         onScroll={handleScroll}
       >
         <CarouselTemplate items={items} currentIndex={currentIndex} />;
