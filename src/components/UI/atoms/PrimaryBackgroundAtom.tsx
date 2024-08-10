@@ -1,8 +1,13 @@
 import clsx from 'clsx'
 
-function PrimaryBackgroundAtom({ className }: { className: string }) {
+interface IProps {
+  className: string;
+  content: string | JSX.Element;
+}
+
+function PrimaryBackgroundAtom({ className, content }: IProps) {
   return (
-    <div className={clsx('inset-border bg-primaryBackground rounded-3xl', className)} />
+    <div className={clsx('p-5 inset-border !bg-primaryBackground rounded-3xl text-white font-bold', className)}>{content}</div>
   )
 }
 

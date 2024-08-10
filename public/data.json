@@ -1,0 +1,146 @@
+{
+    "title": "Product Inventory",
+    "items": [
+    {
+        "id": 1,
+        "name": "Widget",
+        "category": "Gadgets",
+        "price": 19.99,
+        "quantity": 120
+    },
+    {
+        "id": 2,
+        "name": "Gizmo",
+        "category": "Gadgets",
+        "price": 24.99,
+        "quantity": 80
+    },
+    {
+        "id": 3,
+        "name": "Thingamajig",
+        "category": "Tools",
+        "price": 9.99,
+        "quantity": 200
+    },
+    {
+        "id": 4,
+        "name": "Doodad",
+        "category": "Accessories",
+        "price": 14.99,
+        "quantity": 150
+    },
+    {
+        "id": 5,
+        "name": "Doohickey",
+        "category": "Tools",
+        "price": 29.99,
+        "quantity": 50
+    },
+    {
+        "id": 6,
+        "name": "Whatchamacallit",
+        "category": "Gadgets",
+        "price": 12.49,
+        "quantity": 110
+    },
+    {
+        "id": 7,
+        "name": "Contraption",
+        "category": "Tools",
+        "price": 22.99,
+        "quantity": 75
+    },
+    {
+        "id": 8,
+        "name": "Gadget",
+        "category": "Accessories",
+        "price": 17.99,
+        "quantity": 60
+    },
+    {
+        "id": 9,
+        "name": "Apparatus",
+        "category": "Tools",
+        "price": 34.99,
+        "quantity": 40
+    },
+    {
+        "id": 10,
+        "name": "Thingy",
+        "category": "Gadgets",
+        "price": 15.99,
+        "quantity": 90
+    },
+    {
+        "id": 11,
+        "name": "Mechanism",
+        "category": "Tools",
+        "price": 27.99,
+        "quantity": 55
+    },
+    {
+        "id": 12,
+        "name": "Gizmo Lite",
+        "category": "Gadgets",
+        "price": 18.99,
+        "quantity": 130
+    },
+    {
+        "id": 13,
+        "name": "Contrivance",
+        "category": "Accessories",
+        "price": 13.49,
+        "quantity": 95
+    },
+    {
+        "id": 14,
+        "name": "Device",
+        "category": "Gadgets",
+        "price": 21.49,
+        "quantity": 85
+    },
+    {
+        "id": 15,
+        "name": "Instrument",
+        "category": "Tools",
+        "price": 16.49,
+        "quantity": 140
+    },
+    {
+        "id": 16,
+        "name": "Tool",
+        "category": "Tools",
+        "price": 25.49,
+        "quantity": 65
+    },
+    {
+        "id": 17,
+        "name": "Appliance",
+        "category": "Gadgets",
+        "price": 32.99,
+        "quantity": 45
+    },
+    {
+        "id": 18,
+        "name": "Trinket",
+        "category": "Accessories",
+        "price": 11.99,
+        "quantity": 170
+    },
+    {
+        "id": 19,
+        "name": "Doohickey Pro",
+        "category": "Tools",
+        "price": 39.99,
+        "quantity": 30
+    },
+    {
+        "id": 20,
+        "name": "Gadget Plus",
+        "category": "Accessories",
+        "price": 26.99,
+        "quantity": 70
+    }
+  ]
+}
+

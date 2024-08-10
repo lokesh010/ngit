@@ -1,16 +1,17 @@
+import { ItemType } from '../../../types';
 import CarouselItemOrganism from '../organisms/CarouselItemOrganism'
 
 interface IProps {
-  items: null[];
+  items: ItemType[];
   currentIndex: number;
 }
 
 function CarouselTemplate({ items, currentIndex }: IProps) {
   return (
     <>
-      {items.map((_: null, i: number) => (
-        <div className='w-full md:w-1/3'>
-          <CarouselItemOrganism key={i} isActive={i === currentIndex} />
+      {items.map((item: ItemType, i: number) => (
+        <div key={item.id} className='w-full md:w-1/3'>
+          <CarouselItemOrganism item={item} isActive={i === currentIndex} />
         </div>
       ))}
     </>

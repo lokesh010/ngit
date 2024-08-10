@@ -1,37 +1,37 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import CarouselTemplate from './components/UI/templates/CarouselTemplate';
+import useData from './hooks/useData';
+import useScroll from './hooks/useScroll';
 
-const items = Array(10).fill(null);
 
 function App() {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const containerRef = useRef<any>(null);
+  const { handleScroll, containerRef, currentIndex, setCurrentIndex } = useScroll();
+  const { data, sortBy } = useData();
+  const [sort, setSort] = useState('alphabetical');
 
-  const handleScroll = () => {
-    const containerHeight = containerRef.current.clientHeight;
-    const scrollTop = containerRef.current.scrollTop;
-    let newIndex = Math.round(scrollTop / (containerHeight * 0.6));
+  const listData = sort === "alphabetical" ? data : sortBy(sort);
+  const handleSortChange = (e: any) => {
+    setSort(e.target.value);
 
-    setCurrentIndex(newIndex);
+    setTimeout(() => {
+      setCurrentIndex(0);
+    }, 100)
   };
-
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTo({
-        top: currentIndex * containerRef.current.clientHeight * 0.6,
-        behavior: 'smooth'
-      });
-    }
-  }, [currentIndex]);
 
   return (
     <>
+      <select className='absolute bg-red-300 z-30' value={sort} onChange={handleSortChange}>
+        <option value="alphabetical">Alphabetical</option>
+        <option value="price">Display Price</option>
+        <option value="quantity">Quantity</option>
+        <option value="adjusted">Adjusted Price</option>
+      </select>
       <div
         ref={containerRef}
         className="p-2 carousel-container"
         onScroll={handleScroll}
       >
-        <CarouselTemplate items={items} currentIndex={currentIndex} />;
+        <CarouselTemplate items={listData} currentIndex={currentIndex} />
       </div>
     </>
   )
